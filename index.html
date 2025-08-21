@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Surat Cinta untuk Selvi 💌</title>
   <style>
     body {
@@ -9,25 +10,26 @@
       padding: 0;
       font-family: 'Comic Sans MS', cursive;
       background: linear-gradient(to bottom, #ffe6f0, #fff);
-      overflow: hidden;
       text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
       color: #e60073;
-      margin-top: 30px;
-      font-size: 2.5em;
+      margin: 20px 10px;
+      font-size: 2em;
     }
 
     img {
-      width: 250px;
+      width: 80%;
+      max-width: 300px;
       margin: 20px auto;
     }
 
     .btn {
-      padding: 15px 30px;
-      font-size: 18px;
-      margin: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      margin: 15px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -45,7 +47,7 @@
       position: absolute;
     }
 
-    /* Bunga jatuh */
+    /* Efek hati jatuh */
     .falling-heart {
       position: fixed;
       top: -50px;
@@ -61,6 +63,17 @@
         transform: translateY(100vh) rotate(360deg);
       }
     }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -72,7 +85,6 @@
   <button class="btn" id="btn_mau" onclick="jatuhCinta()">Mau ❤️</button>
   <button class="btn" id="btn_gamau" onmouseover="kabur(this)">Gak Mau 🙈</button>
 
-  <!-- JavaScript -->
   <script>
     function kabur(btn) {
       const x = Math.random() * (window.innerWidth - btn.offsetWidth);
