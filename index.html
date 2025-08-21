@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surat Cinta untuk Selvi 💌</title>
+  <title>Surat Cinta untuk Celvi 💌</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -16,28 +20,35 @@
       background: linear-gradient(to bottom, #ffe6f0, #fff);
       text-align: center;
       overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
     h1 {
       color: #e60073;
       margin: 20px 10px;
       font-size: 2em;
+      padding: 0 15px;
     }
 
-    img {
+    .gif {
       width: 80%;
       max-width: 300px;
-      margin: 20px auto;
+      margin: 0 auto 20px;
     }
 
     .btn {
       padding: 12px 25px;
       font-size: 16px;
-      margin: 15px;
+      margin: 15px 10px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
     }
 
     #btn_mau {
@@ -59,12 +70,25 @@
       color: #ff3399;
       user-select: none;
       pointer-events: none;
+      z-index: 9999;
     }
 
     @keyframes fall {
       to {
         transform: translateY(100vh) rotate(360deg);
       }
+    }
+
+    #foto-kejutan {
+      display: none;
+      margin-top: 30px;
+    }
+
+    #foto-kejutan img {
+      width: 90%;
+      max-width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
     @media (max-width: 600px) {
@@ -82,22 +106,37 @@
 <body>
 
   <h1>Hai Selvi 😘</h1>
-  <img src="https://media.tenor.com/Z8ezUHZzcLoAAAPo/love-love-you.gif" alt="Love">
-  <h1>Selvi, mau gak jadi pacarku...? 🥺💖</h1>
+  <img class="gif" src="https://media.tenor.com/Z8ezUHZzcLoAAAPo/love-love-you.gif" alt="Love Animation">
+  <h1>Selvi, mau gak jadi pacarku...?❤️‍🔥</h1>
 
-  <button class="btn" id="btn_mau" onclick="jatuhCinta()">Mau ❤️</button>
-  <button class="btn" id="btn_gamau" onmouseover="kabur(this)">Gak Mau 🙈</button>
+  <div>
+    <button class="btn" id="btn_mau" onclick="jatuhCinta()">Mau ❤️</button>
+    <button class="btn" id="btn_gamau" onmouseover="kabur(this)">Gak Mau 😡</button>
+  </div>
+
+  <!-- Foto kejutan -->
+  <div id="foto-kejutan">
+    <img src="selvi.JPG" alt="Foto orang cantik">
+  </div>
 
   <script>
     function kabur(btn) {
-      const x = Math.random() * (window.innerWidth - btn.offsetWidth);
-      const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+      const padding = 20;
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth - padding);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight - padding);
       btn.style.left = x + 'px';
       btn.style.top = y + 'px';
     }
 
     function jatuhCinta() {
-      alert("Yaaay! Sekarang kita jadian yaaa! 💖💑");
+      alert("Yaaay! mulai Sekarang kita jadian yaaa! 💖💑");
+
+      // Tampilkan foto kejutan
+      const foto = document.getElementById('foto-kejutan');
+      foto.style.display = 'block';
+      foto.scrollIntoView({ behavior: 'smooth' });
+
+      // Animasi hati
       for (let i = 0; i < 50; i++) {
         createFallingHeart();
       }
